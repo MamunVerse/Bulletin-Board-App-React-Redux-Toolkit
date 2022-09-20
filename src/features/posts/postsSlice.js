@@ -14,7 +14,7 @@ const initialState = [
     title: "This is Second title",
     content: "This is Second content",
     userId : 2,
-    date : sub(new Date(), {minutes : 10}).toISOString(),
+    date : sub(new Date(), {minutes : 5}).toISOString(),
   },
 ];
 
@@ -32,7 +32,8 @@ const postsSlice = createSlice({
             id: nanoid(),
             title,
             content,
-            userId
+            userId,
+            date : new Date().toISOString()
           },
         };
       },
