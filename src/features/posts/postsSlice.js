@@ -1,36 +1,11 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 import sub from "date-fns/sub";
 
-const initialState = [
-  {
-    id: 1,
-    title: "This is first title",
-    content: "This is first content",
-    userId : 1,
-    date : sub(new Date(), {minutes : 10}).toISOString(),
-    reactions : {
-      thumbsUp : 0,
-      wow : 0,
-      heart : 0,
-      rocket : 0,
-      coffee : 0
-    }
-  },
-  {
-    id: 2,
-    title: "This is Second title",
-    content: "This is Second content",
-    userId : 2,
-    date : sub(new Date(), {minutes : 5}).toISOString(),
-    reactions : {
-      thumbsUp : 0,
-      wow : 0,
-      heart : 0,
-      rocket : 0,
-      coffee : 0
-    }
-  },
-];
+const initialState = {
+  posts: [],
+  status: 'idle', // 'idle' | 'loading' | 'success' | 'failed
+  error: null
+};
 
 const postsSlice = createSlice({
   name: "posts",
